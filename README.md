@@ -96,7 +96,9 @@ DummyRegressor I estimated the error Enew using the k-fold method mentioned abov
 be 4829.48787. Below is a graph of what this model looks like when compared to the
 actual stock price.
 
-![alt text](image.png)
+![image](https://github.com/user-attachments/assets/f3205968-3a0b-47c1-8723-4a75047bed2e)
+
+
 
 **2.6 K-Nearest-Neighbors algorithm:**
 I then used the k-Nearest-Neighbors algorithm to develop a model. I did this by
