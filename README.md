@@ -122,6 +122,7 @@ hyperparameters. Now I am sweeping over k values 1-30, metrics (euclidean
 manhattan, minkowski), and weights (uniform, distance). After sweeping through all 174
 candidates, the best hyperparameter is a k of 8, euclidean metrics, and distance
 weights. This had an estimated Enew of 253.5184.
+
 ![image](https://github.com/user-attachments/assets/313a327e-d363-4c94-8db5-11f74642a1ae)
 
 When the full model was trained, it had a MSE of 271.0015 on the test set. Here
