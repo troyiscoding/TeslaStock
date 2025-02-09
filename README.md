@@ -61,6 +61,7 @@ negative tweet. Forgive the blurry image, but I believe that if we have a model 
 the data better, we can get better accuracy than just detecting if the sentiment is
 positive or negative.
 
+![Screenshot From 2025-02-09 00-17-53](https://github.com/user-attachments/assets/d940c055-3ac0-4bc9-97db-44f97598e6f5)
 
 ### 2. Methods and Experiments
 
@@ -105,20 +106,30 @@ I then used the k-Nearest-Neighbors algorithm to develop a model. I did this by
 performing a hyperparameter sweep to determine the best value for k. I performed the
 sweep over the values 1-30. I found that the best model was found at a k value of 4
 which resulted in an estimated Enew of 270.548.
+
+![image](https://github.com/user-attachments/assets/4c4e27ad-4705-4f49-9385-ba05f0f4f819)
+
+
 After training this model, I found that the final best model had a performance
 using MSE of 317.401 1 when tested on the test set. This is what the model looks like
 when it is against the true stock price.
+
+![image](https://github.com/user-attachments/assets/09545cf2-4741-4e36-9c2a-4c4e88893e3b)
+
 
 Wanting better performance I next swept over the metric and weights
 hyperparameters. Now I am sweeping over k values 1-30, metrics (euclidean
 manhattan, minkowski), and weights (uniform, distance). After sweeping through all 174
 candidates, the best hyperparameter is a k of 8, euclidean metrics, and distance
 weights. This had an estimated Enew of 253.5184.
+![image](https://github.com/user-attachments/assets/313a327e-d363-4c94-8db5-11f74642a1ae)
+
 When the full model was trained, it had a MSE of 271.0015 on the test set. Here
 is what it looked like when compared to the actual stock prices. This model tracks the
 actual stock price nicely, and only gets thrown off by swift market corrections, followed
 by a surge in the market.
 
+![image](https://github.com/user-attachments/assets/7709610e-76ae-4732-acbf-af44e1e93b67)
 
 **2.7 Decision Trees algorithm:**
 Next I used decision trees to develop a model. I chose to use squared_error and
@@ -133,6 +144,11 @@ for min_samples_split and min_samples_leaf.
 Using this I was able to generate a plot for each criteria showing the
 hyperparameter sweeps by evaluating error using k-fold validation method.
 
+![image](https://github.com/user-attachments/assets/a65f6fd1-3865-495c-9090-0aa4b94636be)
+
+![image](https://github.com/user-attachments/assets/1676f8e7-76fc-40be-a656-fbb0905342b6)
+
+
 Below is the best decision tree model trained and its predictions graphed on to
 the true stock price. It uses a depth of 5, a min_samples_split of 3, a min_samples leaf
 of 1, and a criterion of squared error. Using this I was able to get a cross validation
@@ -141,12 +157,17 @@ tends to do a good job at predicting the market. After being trained it was able
 MSE of 237.72 on the test set. This was the best yet! The difference between the final
 tested error and the cross validation score is possibly because of some slight overfitting.
 
+![image](https://github.com/user-attachments/assets/79e7cea5-c9ef-4bbc-b2f2-db8fb6a826f3)
+
+
 **2.8 Performance Evaluation:**
 The final models tested on the test set for the baseline had a Mean Squared
 Error of 6020, the K-Nearest-Neighbor had an error of 271, and the Decision Tree
 Model had an error of 237. Both the KNN and Decision tree were able to beat the
 Dummy model by miles, this means that they are a good representation of the
 estimated stock price.
+
+![image](https://github.com/user-attachments/assets/7d57f799-35d4-4036-89ce-2706a13b1384)
 
 
 ## 3. Discussion and Conclusion
@@ -159,6 +180,10 @@ though it outperformed the Decision Tree for most of the months, it still has a 
 error. If you used this KNN model you would have missed some of the massive growth
 leading into 2020, and for this reason the Decision Tree would be the best performing
 model.
+
+![image](https://github.com/user-attachments/assets/f4411372-afb3-4f57-a927-59954bb23d74)
+
+
 Another method that I thought that would be useful for measuring performance
 would be to ignore the amount that each model was off, but map if it was able to predict
 the direction of the stock “Going up”/ “Going Down” correctly. This gives us a categorical
@@ -168,6 +193,10 @@ the time, while the KNN was able to get it 65.91%. While I thought this would be
 classification method, it can be slightly misleading. The model should not be judged on
 how often it gets things right, but also by the magnitude that it wins or loses. Therefore,
 while trend direction is interesting, the primary metric is Mean Squared Error.
+
+![image](https://github.com/user-attachments/assets/e439d56c-d4b1-44d5-90d8-c1e6eafe664f)
+
+![image](https://github.com/user-attachments/assets/2f969e8c-3582-4a56-88cb-9dfb5e250668)
 
 
 **3.2 Model vs Baseline:**
@@ -179,6 +208,9 @@ significantly better than the baseline that I trained. Since the stock market is
 and the stock for Tesla rose considerably, simply taking the mean of the stock led to
 large errors. In the graph below, you can see the Decision Tree, along with the other
 models closely following the actual daily price.
+
+![image](https://github.com/user-attachments/assets/3a10a3f7-cbb7-4b8b-8774-6f464243c857)
+
 
 **3.3 Confidence in real-world Applications:**
 I would like to preface my confidence in the model by first acknowledging its
