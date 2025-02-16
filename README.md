@@ -1,5 +1,5 @@
 # TeslaStock
-Work for my Founations of ML class
+Building my Founations of ML.
 
 # Packages Installed
 
